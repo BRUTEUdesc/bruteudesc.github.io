@@ -105,7 +105,7 @@ pre {
     &:hover {
       transform: translateY(3px);
       background-color: #15F3A8;
-      color: #515151;
+      color: white;
     }
   }
 }
@@ -169,14 +169,14 @@ pre {
     padding: 1rem;
   }
   .title-article, .page-title, .post-title {
-    font-family: 'Finger Paint', cursive;
+    font-family: 'Oswald';
     margin-bottom: 0;
     transition: all .3s;
-    color: #15F3A8;
+    color: black;
     font-size: 2.5rem;
     margin-top: 0.67rem;
     a {
-      color: #15F3A8;
+      color: black;
       text-decoration: none;
     }
   }
