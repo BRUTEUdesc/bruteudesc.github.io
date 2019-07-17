@@ -23,4 +23,4 @@ Aqui estão dois documentos bem completos que podem ser utilizados durante as pr
 * [Stanford University ICPC Team Notebook](/docs/stanford.pdf)
 
 # Apostila
-* [Programção Competitiva - Matheus Pimenta UNB (incompleta mas útil)](/docs/pimenta.pdf)
+* [Programação Competitiva - Matheus Pimenta UNB (incompleta mas útil)](/docs/pimenta.pdf)
