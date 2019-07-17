@@ -7,7 +7,7 @@
 
 html {
   line-height: 1.5;
-  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif, Oswald;
 }
 
 @media screen and (min-width: 500px) {
@@ -33,16 +33,16 @@ img {
 }
 
 a {
-  color: #15F3A8;
+  color: #b00c0c;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
-    color: #1bdc9b;
+    color: #b00c0c;
   }
 }
 
 blockquote {
-  border-left: 5px solid #15F3A8;
+  border-left: 5px solid #b00c0c;
   padding-left: 1.1rem;
   margin-left: 1.2rem;
   font-style: italic;
@@ -104,7 +104,7 @@ pre {
     transition: all .35s;
     &:hover {
       transform: translateY(3px);
-      background-color: #15F3A8;
+      background-color: #b00c0c;
       color: white;
     }
   }
@@ -120,8 +120,8 @@ pre {
 
 .sidebar-logo {
   .logo {
-    font-family: 'Finger Paint', cursive;
-    color: #15F3A8;
+    font-family: Oswald;
+    color: #b00c0c;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 3rem;
@@ -185,12 +185,12 @@ pre {
       font-size: 0.8rem;
       text-transform: uppercase;
       font-family: monospace;
-      color: lightgreen;
+      color: #b00c0c;
     }
   }
   .more {
     text-decoration: none;
-    color: lightgreen;
+    color: #b00c0c;
   }
 }
 
@@ -213,7 +213,7 @@ img.post-image, img.page-img {
     text-transform: uppercase;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
     text-decoration: none;
-    background: #15F3A8;
+    background: #b00c0c;
     transition: all .35s;
     &:hover {
       box-shadow: none;
@@ -271,7 +271,7 @@ img.post-image, img.page-img {
   text-transform: uppercase;
   padding: 1rem 1.5rem;
   color: #fff;
-  background: #15F3A8;
+  background: #b00c0c;
   border: 0;
   border-radius: 0;
   outline: 0;
@@ -279,7 +279,7 @@ img.post-image, img.page-img {
   cursor: pointer;
   transition: all .4s;
   &:hover {
-    background-color: #1bdc9b;
+    background-color: #b00c0c;
   }
 }
 

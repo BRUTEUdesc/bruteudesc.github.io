@@ -1,13 +1,26 @@
 ---
 layout: post
-title:  "O grupo"
+title:  "Materiais para consulta"
 date:   2019-07-16 12:00:00
-img: galera.jpg
-description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+img: post1.gif
+description: Bons livros e bons sites para consulta.
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Antes de mais nada, **PARA TUDO O QUE ESTA FAZENDO AGORA E LEIA ISSO INTEIRO** [Matheus Pimenta - Como se tornar um programador competitivo](http://matheuspimenta.com/como-se-tornar-um-programador-competitivo)
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+# Livros
+
+Estudar é uma arte. É preciso foco e objetivo para ir longe. Aqui estão duas recomendações para quem está começando. Esses dois livros podem te levar a uma etapa Nacional de ICPC.
+* [Competitive Programming 3: The New Lower Bound of Programming Contests](/docs/cp3.pdf)
+* [Competitive Programmer’s Handbook](/docs/hand.pdf)
+
+# Codebooks
+
+Um bom escoteiro nunca esquece seu canivete. Nós programadores também possuimos nossos canivetes.
+Aqui estão dois documentos bem completos que podem ser utilizados durante as provas.
+* [Macacário Maratona de Programação v3.3 - Instituto Tecnológico de Aeronáutica](/docs/macacario.pdf)
+* [Stanford University ICPC Team Notebook](/docs/stanford.pdf)
+
+# Apostila
+* [Programção Competitiva - Matheus Pimenta UNB (incompleta mas útil)](/docs/pimenta.pdf)

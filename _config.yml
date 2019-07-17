@@ -5,17 +5,15 @@ description: > # this means to ignore newlines until "baseurl:"
   BRUTE é um projeto de extensão da Universidade do Estado de Santa Catarina.
   Com o antuito de pontencializar o desempenho dos acadêmicos em competições de programação compatitiva, o BRUTE organiza treinos e palestras.
 permalink: ':title/'
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "bruteudesc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '' # the subpath of your site, e.g. /blog
+url: 'bruteudesc.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 
 # Social
-facebook: #Add your Facebook
-twitter: #Add your Twitter
-google-plus: #Add your Google+
-github: #Add your Github
+facebook: 'maratona' #Add your Facebook
+github: 'bruteudesc'
 
 # Contact form
-email: bruteudesc@gmail.com
+email: 'bruteudesc@gmail.com'
 
 # Comments
 discus-identifier: # Add your Disqus identifier
