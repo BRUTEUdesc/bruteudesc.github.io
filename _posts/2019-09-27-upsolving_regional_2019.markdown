@@ -38,10 +38,6 @@ conjunto serão dadas pelas:
 Assim, para solucionarmos o problema, basta armazenamos os conjuntos de circunferências em vetores e, em seguida, testarmos se
 um conjunto de circunferências é capaz de impedir a passagem. Retornamos "N" caso um ou mais conjunto são capazes de impedir
 a passagem pela sala, ou retornamos "S" caso contrário
-
-
-<details><summary>Solução em C++</summary>
-<p>
     
 ```cpp
 #include <bits/stdc++.h>
@@ -137,18 +133,12 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
-</p>
-</details>
-
 ## Problema B
 Para esse problema, nos é dado um vetor de entrada V, com N elementos, e é requerido que encontremos dentro desse vetor um valor que seja maior que o primeiro valor do vetor  
 
 Podemos solucionar esse problema sem a necessidade de um vetor, testando os valores inseridos na entrada, otimizando o tempo gasto para rodar o algoritmo.  
 
 Para isso, basta lermos o valor de N, o primeiro valor de V, e então para i = 2; i <= N, lemos os valores restantes e comparamos com o primeiro valor, gerando o resultado final a partir de uma variável booleana.
-
-<details><summary>Solução em C++</summary>
-<p>
  
  ```cpp
  #include <bits/stdc++.h>
@@ -170,5 +160,3 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 ```
-
-</p>
