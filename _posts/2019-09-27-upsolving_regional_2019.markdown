@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Upsolving Maratona Regional ICPC 2019"
+date:   2019-09-27 14:55:00
+img: post2.jpeg
+description: Resolvendo probleminhas
+---
+
 # Upsolving Maratona regional ICPC 2019
 <br />
 
