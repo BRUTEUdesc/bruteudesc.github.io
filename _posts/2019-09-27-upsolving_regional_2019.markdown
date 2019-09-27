@@ -2,7 +2,7 @@
 layout: post
 title:  "Upsolving Maratona Regional ICPC 2019"
 date:   2019-09-27 14:55:00
-img: post2.jpeg
+img: post3.png
 description: Resolvendo probleminhas
 ---
 
@@ -13,9 +13,12 @@ Vou estar disponibilizando aqui um upsolving das questões que caíram na marato
 Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução,
  além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
 programar a própria solução (ou pra comparar também).  
+Cada problema terá um link para o problema na plataforma Uri Online Judge
 Dito isso, aproveite a leitura
 
 ## Problema A
+[Arte Valiosa](https://www.urionlinejudge.com.br/judge/pt/problems/view/2962)  
+
 O problema consiste em encontrar um caminho entre o canto inferior esquerdo e o canto superior direito de um retângulo, evitando
 passar pela área dos sensores de presença, que possuem um raio r e um par de coordenadas (x,y).  
 Para esse problema é interessante perceber as seguintes propriedades:  
@@ -38,7 +41,11 @@ conjunto serão dadas pelas:
 Assim, para solucionarmos o problema, basta armazenamos os conjuntos de circunferências em vetores e, em seguida, testarmos se
 um conjunto de circunferências é capaz de impedir a passagem. Retornamos "N" caso um ou mais conjunto são capazes de impedir
 a passagem pela sala, ou retornamos "S" caso contrário
-    
+
+### Solução em C++
+<details>
+
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -71,8 +78,8 @@ int main(int argc, char const *argv[]) {
     int n,m,k;
     int x,y,r;
     cin >> n >> m >> k;
-    vector<circle> c;
-    vector<vector<circle> > circles;
+    vector <circle> c;
+    vector<vector <circle> > circles;
     for (int i = 0; i < k; i++){
         cin >> x >> y >> r;
         c.pb(circle(point(x,y),r,-1));
@@ -132,16 +139,23 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 ```
+</details>
 
 ## Problema B
+[Bobo da Corte](https://www.urionlinejudge.com.br/judge/pt/problems/view/2963)
+
+
 Para esse problema, nos é dado um vetor de entrada V, com N elementos, e é requerido que encontremos dentro desse vetor um valor que seja maior que o primeiro valor do vetor  
 
 Podemos solucionar esse problema sem a necessidade de um vetor, testando os valores inseridos na entrada, otimizando o tempo gasto para rodar o algoritmo.  
 
 Para isso, basta lermos o valor de N, o primeiro valor de V, e então para i = 2; i <= N, lemos os valores restantes e comparamos com o primeiro valor, gerando o resultado final a partir de uma variável booleana.
- 
- ```cpp
- #include <bits/stdc++.h>
+
+### Solução em C++
+<details>
+
+```cpp
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(int argc, char const *argv[]) {
@@ -160,3 +174,115 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 ```
+
+</details>
+
+## Problema D
+[Delação Premiada](https://www.urionlinejudge.com.br/judge/pt/problems/view/2965)
+
+Nesse problema precisamos encontrar o maior número de mafiosos em uma hierarquia podendo saber os crimes de apenas K pessoas.
+
+Note que como o topo da hierarquia sempre pertence ao nó 1, podemos facilmente modelar esse problema utilizando uma árvore, onde cada elemento possui um nó pai e uma profundidade.
+Após a entrada de dados, precisamos encontrar a profundidade de todos os nós. Para isso, rodamos um DFS a partir do nó raiz da árvore.
+
+Em seguida, com a profundidade de cada nó, precisamos encontrar quantas pessoas podem ser presas a partir de uma folha. Para isso, rodamos um DFS com DP em todos os nós, começando com os nós de menor profundidade e subindo a árvore, denotando para cada nó, o tamanho do caminho até a parte mais baixa da árvore. Perceba que caso um nó tenha 2 ou mais filhos, é interessante manter o nó cujo caminho seja maior. Os outros nós armazenaremos em um fila de prioridade.
+
+Quando terminarmos de percorrer todos os nós, temos como resultado o tamanho do maior caminho até a parte mais baixa da árvore, enquanto os outros caminhos estarão armazenados de forma decrescente. Feito isso, basta agora pegar da fila K-1 elementos e somá-los com o resultado que ja tinhamos. Esse é o resultado que deve ser imprimido
+
+### Solução em C++
+<details>
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int> > adjList;
+vector<pair<int, int> > r;
+vector<int> parent;
+vector<int> vis;
+priority_queue<int> pq;
+
+void busca_rank(int o){
+    for (int i = 0; i < adjList[o].size(); i++){
+        int idx = adjList[o][i];
+        r[idx].first = r[o].first-1;
+        busca_rank(idx);
+    }
+}
+
+int dfs(int o){
+    if (vis[o] != -1) return vis[o];
+    int m = 0;
+    for (int i = 0; i < adjList[o].size(); i++){
+        int tam = dfs(adjList[o][i]);
+        if (tam > m){
+            if (m != 0) pq.push(m);
+            m = tam;
+        } else pq.push(tam);
+    }
+    vis[o] = m+1;
+    return vis[o];
+}
+
+int main(int argc, char const *argv[]) {
+    int n, k, x;
+    cin >> n >> k;
+    adjList.resize(n);
+    vis.push_back(-1);
+    r.push_back(make_pair(n,0));
+    parent.push_back(-1);
+    for (int i = 1; i < n; i++){
+        vis.push_back(-1);
+        r.push_back(make_pair(n,i));
+        cin >> x;
+        x--;
+        parent.push_back(x);
+        adjList[x].push_back(i);
+    }
+    busca_rank(0);
+    sort(r.begin(), r.end());
+    int res;
+    for (int i = 0; i < n; i++){
+        res = dfs(r[i].second);
+    }
+    for (int i = 0; i < k-1; i++){
+        res += pq.top();
+        pq.pop();
+    }
+    cout << res << endl;
+    return 0;
+}
+```
+
+</details>
+
+## Problema H
+[Hora da Corrida](https://www.urionlinejudge.com.br/judge/pt/problems/view/2968)
+
+Nesse problema nos é fornecido o comprimento de uma volta e o número de voltas que serão percorridas, e precisamos fornecer a distância de cada 10% do trajeto até 90%.
+
+A primeira coisa que precisamos fazer é multiplicar o número de voltas com o comprimento de uma volta para encontrarmos a distância total do percurso.
+
+Após isso, basta fazer uma iteração de 1 a 9, imprimindo o resultado da operação  
+dt/(0.1 * i), onde dt é a distância total e i é a iteração atual
+
+### Solução em C++
+<details>
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int a,b,c;
+    cin >> a >> b;
+    c = a*b;
+    printf("%d",(int)(ceil(c*0.1)));
+    for (int i = 2; i < 10; i++){
+        printf(" %d", (int)(ceil(c*(i/10.0))));
+    }
+    cout << endl;
+    return 0;
+}
+```
+</details>
