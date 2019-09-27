@@ -7,7 +7,6 @@ description: Resolvendo probleminhas
 ---
 
 # Upsolving Maratona regional ICPC 2019
-<br />
 
 Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).  
 Vou estar disponibilizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
@@ -42,6 +41,7 @@ a passagem pela sala, ou retornamos "S" caso contrário
 
 
 <details><summary>Solução em C++</summary>
+<p>
     
 ```cpp
 #include <bits/stdc++.h>
@@ -136,17 +136,19 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 ```
+
+</p>
 </details>
-<br />
 
 ## Problema B
 Para esse problema, nos é dado um vetor de entrada V, com N elementos, e é requerido que encontremos dentro desse vetor um valor que seja maior que o primeiro valor do vetor  
-<br />
+
 Podemos solucionar esse problema sem a necessidade de um vetor, testando os valores inseridos na entrada, otimizando o tempo gasto para rodar o algoritmo.  
-<br />
+
 Para isso, basta lermos o valor de N, o primeiro valor de V, e então para i = 2; i <= N, lemos os valores restantes e comparamos com o primeiro valor, gerando o resultado final a partir de uma variável booleana.
 
 <details><summary>Solução em C++</summary>
+<p>
  
  ```cpp
  #include <bits/stdc++.h>
@@ -168,3 +170,5 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 ```
+
+</p>
