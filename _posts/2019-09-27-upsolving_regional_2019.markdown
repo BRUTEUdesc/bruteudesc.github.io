@@ -2,7 +2,7 @@
 layout: post
 title:  "Upsolving Maratona Regional ICPC 2019"
 date:   2019-09-27 14:55:00
-img: post3.png
+img: post3.jpg
 description: Resolvendo probleminhas
 ---
 
