@@ -9,7 +9,7 @@ description: Resolvendo probleminhas
 # Upsolving Maratona regional ICPC 2019
 
 Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).
-Me chamo João Vitor Fröhlich [<span style="color:green">(j</span>] (https://codeforces.com/profile/joaovitor01) e estarei realizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
+Me chamo João Vitor Fröhlich <a href="https://codeforces.com/profile/joaovitor01" style="color: green">(joaovitor01)</a> e estarei realizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
 Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução, além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
 programar a própria solução (ou pra comparar também).  
 Cada problema terá um link para o problema na plataforma Uri Online Judge
