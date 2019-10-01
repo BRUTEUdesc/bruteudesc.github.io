@@ -8,13 +8,90 @@ description: Resolvendo probleminhas
 
 # Upsolving Maratona regional ICPC 2019
 
-Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).  
-Vou estar disponibilizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
-Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução,
- além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
+Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).
+Me chamo João Vitor Fröhlich [<span style="color:green">(j</span>] (https://codeforces.com/profile/joaovitor01) e estarei realizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
+Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução, além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
 programar a própria solução (ou pra comparar também).  
 Cada problema terá um link para o problema na plataforma Uri Online Judge
 Dito isso, aproveite a leitura
+
+# Aquecimento
+
+## Problema A
+
+Teleférico
+
+Solução disponivel na própria [prova](/docs/aquecimento_2019.pdf).
+
+## Problema B
+
+[Fatorial](https://www.urionlinejudge.com.br/judge/pt/problems/view/1936)
+
+O problema se baseia em dado um valor N, descobrir qual a menor quantidade de k fatorias são necessários tal que N = a! + b! + ... + z!, sendo {a,b,...,z} inteiros positivos menores que k.
+
+Um valor N pode ser descrito da forma N = a! + b! + c!
+Sabemos que
+
+N/c! = a!/c! + b!/c! + c!/c!
+N/c! = a!/c! + b!/c! + 1
+
+Se considerarmos como sendo divisão inteira temos
+
+N/c! = 0 + 0 + 1
+
+Isso nos mostra que se c! pertencer a soma, N/c! == 1
+Então para minimizar k, precisamos adotar uma estratégia *greedy* começando por pegar os maiores valores até zerar N
+Por fim, realizamos uma operação modular em N para retirar o fatorial da soma.
+Com a finalidade de otimizar a consulta do fatorial, utilizamos a técnica de *programação dinâmica*.
+
+### Solução em Python3
+<details>
+
+
+```python
+def fats(x):
+    ans = 1
+    for i in range(2,x+1):
+        ans *= i
+    return ans
+
+fat = [fats(i) for i in range(1,10)] 
+
+n = int(input())
+ans = 0
+
+for i in range(8,-1,-1):
+    ans += n//fat[i]
+    n %= fat[i]
+
+print(ans)
+```
+</details>
+
+## Problema C
+
+[Nota Esquecida](/docs/aquecimento_2019.pdf)
+
+Este problema consiste em descobrir B tal que M = (A+B) / 2
+Sabemos M e A, então isolando B obtemos
+
+B = M*2 - A
+
+### Solução em Python3
+<details>
+
+
+```python
+A = int(input())
+M = int(input())
+B = M*2 - A
+
+print(B)
+```
+</details>
+
+
+# Prova Principal
 
 ## Problema A
 [Arte Valiosa](https://www.urionlinejudge.com.br/judge/pt/problems/view/2962)  
