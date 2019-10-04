@@ -27,21 +27,24 @@ Solução disponivel na própria [prova](/docs/aquecimento_2019.pdf).
 
 [Fatorial](https://www.urionlinejudge.com.br/judge/pt/problems/view/1936)
 
-O problema se baseia em dado um valor N, descobrir qual a menor quantidade de k fatorias são necessários tal que N = a! + b! + ... + z!, sendo {a,b,...,z} inteiros positivos menores que k.
+O problema se baseia em dado um valor $$N$$, descobrir qual a menor quantidade de $$k$$ fatorias são necessários tal que $$N = a! + b! + ... + z!$$, sendo $${a,b,...,z}$$ inteiros positivos menores que $$k$$.
 
-Um valor N pode ser descrito da forma N = a! + b! + c!
+Um valor $$N$$ pode ser descrito da forma $$N = a! + b! + c!$$
 Sabemos que
 
-N/c! = a!/c! + b!/c! + c!/c!
-N/c! = a!/c! + b!/c! + 1
+$$\frac{N}{c!} = \frac{a!}{c!} + \frac{b!}{c!} + \frac{c!}{c!}$$
+
+$$\frac{N}{c!} = \frac{a!}{c!} + \frac{b!}{c!} + 1$$
 
 Se considerarmos como sendo divisão inteira temos
 
-N/c! = 0 + 0 + 1
+$$\frac{N}{c!} = 0 + 0 + 1$$
 
-Isso nos mostra que se c! pertencer a soma, N/c! == 1
-Então para minimizar k, precisamos adotar uma estratégia *greedy* começando por pegar os maiores valores até zerar N
-Por fim, realizamos uma operação modular em N para retirar o fatorial da soma.
+Isso nos mostra que se $$c!$$ pertencer a soma, $$N/c! == 1$$.
+
+Então para minimizar $$k$$, precisamos adotar uma estratégia *greedy* começando por pegar os maiores valores até zerar $$N$$.
+
+Por fim, realizamos uma operação modular em $$N$$ para retirar o fatorial da soma.
 Com a finalidade de otimizar a consulta do fatorial, utilizamos a técnica de *programação dinâmica*.
 
 ### Solução em Python3
@@ -72,10 +75,11 @@ print(ans)
 
 [Nota Esquecida](/docs/aquecimento_2019.pdf)
 
-Este problema consiste em descobrir B tal que M = (A+B) / 2
-Sabemos M e A, então isolando B obtemos
+Este problema consiste em descobrir $$B$$ tal que $$M = (A+B) / 2$$
 
-B = M*2 - A
+Sabemos $$M$$ e $$A$$, então isolando $$B$$ obtemos
+
+$$B = 2*M - A$$
 
 ### Solução em Python3
 <details>
@@ -84,7 +88,7 @@ B = M*2 - A
 ```python
 A = int(input())
 M = int(input())
-B = M*2 - A
+B = 2*M - A
 
 print(B)
 ```
