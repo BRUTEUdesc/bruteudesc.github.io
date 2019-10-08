@@ -40,7 +40,7 @@ Se considerarmos como sendo divisão inteira temos
 
 $$\frac{N}{c!} = 0 + 0 + 1$$
 
-Isso nos mostra que se $$c!$$ pertencer a soma, $$N/c! == 1$$.
+Isso nos mostra que se $$c!$$ pertencer a soma, $$\frac{N}{c!} == 1$$.
 
 Então para minimizar $$k$$, precisamos adotar uma estratégia *greedy* começando por pegar os maiores valores até zerar $$N$$.
 
@@ -340,12 +340,12 @@ int main(int argc, char const *argv[]) {
 ## Problema H
 [Hora da Corrida](https://www.urionlinejudge.com.br/judge/pt/problems/view/2968)
 
-Nesse problema nos é fornecido o comprimento de uma volta e o número de voltas que serão percorridas, e precisamos fornecer a distância de cada 10% do trajeto até 90%.
+Nesse problema nos é fornecido o comprimento de uma volta (N) e o número de voltas (V) que serão percorridas, e precisamos fornecer a distância de cada 10% do trajeto até 90%.
 
-A primeira coisa que precisamos fazer é multiplicar o número de voltas com o comprimento de uma volta para encontrarmos a distância total do percurso.
+A primeira coisa que precisamos fazer é encontrarmos a distância total do percurso $$dt = N*V$$
 
 Após isso, basta fazer uma iteração de 1 a 9, imprimindo o resultado da operação  
-dt/(0.1 * i), onde dt é a distância total e i é a iteração atual
+$$\sum_{i=1}^{9} \frac{dt}{0.1*i}$$  
 
 ### Solução em C++
 <details>
