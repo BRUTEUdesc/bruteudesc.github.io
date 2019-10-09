@@ -8,13 +8,94 @@ description: Resolvendo probleminhas
 
 # Upsolving Maratona regional ICPC 2019
 
-Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).  
-Vou estar disponibilizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
-Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução,
- além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
+Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é caro demais para ninguem utilizar).
+Me chamo João Vitor Fröhlich <a href="https://codeforces.com/profile/joaovitor01" style="color: green">(joaovitor01)</a> e estarei realizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
+Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução, além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
 programar a própria solução (ou pra comparar também).  
 Cada problema terá um link para o problema na plataforma Uri Online Judge
 Dito isso, aproveite a leitura
+
+# Aquecimento
+
+## Problema A
+
+Teleférico
+
+Solução disponivel na própria [prova](/docs/aquecimento_2019.pdf).
+
+## Problema B
+
+[Fatorial](https://www.urionlinejudge.com.br/judge/pt/problems/view/1936)
+
+O problema se baseia em dado um valor $$N$$, descobrir qual a menor quantidade de $$k$$ fatorias são necessários tal que $$N = a! + b! + ... + z!$$, sendo $${a,b,...,z}$$ inteiros positivos menores que $$k$$.
+
+Um valor $$N$$ pode ser descrito da forma $$N = a! + b! + c!$$
+Sabemos que
+
+$$\frac{N}{c!} = \frac{a!}{c!} + \frac{b!}{c!} + \frac{c!}{c!}$$
+
+$$\frac{N}{c!} = \frac{a!}{c!} + \frac{b!}{c!} + 1$$
+
+Se considerarmos como sendo divisão inteira temos
+
+$$\frac{N}{c!} = 0 + 0 + 1$$
+
+Isso nos mostra que se $$c!$$ pertencer a soma, $$\frac{N}{c!} == 1$$.
+
+Então para minimizar $$k$$, precisamos adotar uma estratégia *greedy* começando por pegar os maiores valores até zerar $$N$$.
+
+Por fim, realizamos uma operação modular em $$N$$ para retirar o fatorial da soma.
+Com a finalidade de otimizar a consulta do fatorial, utilizamos a técnica de *programação dinâmica*.
+
+### Solução em Python3
+<details>
+
+
+```python
+def fats(x):
+    ans = 1
+    for i in range(2,x+1):
+        ans *= i
+    return ans
+
+fat = [fats(i) for i in range(1,10)] 
+
+n = int(input())
+ans = 0
+
+for i in range(8,-1,-1):
+    ans += n//fat[i]
+    n %= fat[i]
+
+print(ans)
+```
+</details>
+
+## Problema C
+
+[Nota Esquecida](/docs/aquecimento_2019.pdf)
+
+Este problema consiste em descobrir $$B$$ tal que $$M = (A+B) / 2$$
+
+Sabemos $$M$$ e $$A$$, então isolando $$B$$ obtemos
+
+$$B = 2*M - A$$
+
+### Solução em Python3
+<details>
+
+
+```python
+A = int(input())
+M = int(input())
+B = 2*M - A
+
+print(B)
+```
+</details>
+
+
+# Prova Principal
 
 ## Problema A
 [Arte Valiosa](https://www.urionlinejudge.com.br/judge/pt/problems/view/2962)  
@@ -259,12 +340,12 @@ int main(int argc, char const *argv[]) {
 ## Problema H
 [Hora da Corrida](https://www.urionlinejudge.com.br/judge/pt/problems/view/2968)
 
-Nesse problema nos é fornecido o comprimento de uma volta e o número de voltas que serão percorridas, e precisamos fornecer a distância de cada 10% do trajeto até 90%.
+Nesse problema nos é fornecido o comprimento de uma volta (N) e o número de voltas (V) que serão percorridas, e precisamos fornecer a distância de cada 10% do trajeto até 90%.
 
-A primeira coisa que precisamos fazer é multiplicar o número de voltas com o comprimento de uma volta para encontrarmos a distância total do percurso.
+A primeira coisa que precisamos fazer é encontrarmos a distância total do percurso $$dt = N*V$$
 
 Após isso, basta fazer uma iteração de 1 a 9, imprimindo o resultado da operação  
-dt/(0.1 * i), onde dt é a distância total e i é a iteração atual
+$$\sum_{i=1}^{9} \frac{dt}{0.1*i}$$  
 
 ### Solução em C++
 <details>

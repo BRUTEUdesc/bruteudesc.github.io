@@ -924,7 +924,9 @@ pre code {
 }
 
 img.post-image, img.page-img {
-  width: 100%;
+  width: 795px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .page-content {
@@ -1044,4 +1046,33 @@ img.post-image, img.page-img {
   .previous, .next {
     display: block;
   }
+}
+
+.contact-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-div a {
+  text-decoration: none;
+  color: #b00c0c;
+}
+
+.team-row {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.team-member img{
+  border-radius: 23px;
+  margin: auto;
+}
+
+.name {
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
 }

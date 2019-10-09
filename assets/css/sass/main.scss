@@ -195,7 +195,9 @@ pre {
 }
 
 img.post-image, img.page-img {
-  width: 100%;
+  width: 795px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .page-content {
