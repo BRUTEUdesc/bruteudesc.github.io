@@ -367,3 +367,76 @@ int main(){
 }
 ```
 </details>
+
+## Problema M
+[Maratona Brasileira de Comedores de Pipoca](https://www.urionlinejudge.com.br/judge/pt/problems/view/2973)
+
+O problema consiste em encontrar um número [1,c] de subsequencias, onde a subsequencia que possua a maior soma tenha a soma de valor minimo
+
+São fornecidos os dados de quantidade elementos da sequencia principal $$N$$, a quantidade máxima de subsequencias $$C$$ e quantas pipocas serão consumidas por segundo $$T$$. Também serão fornecidos $$N$$ valores, onde cada valor $$p_{i}$$ representa a quantidade de pipocas por elemento
+
+Para resolvermos esse problema, iremos inicialmente testar um valor $$x | x = 2^{\log_2 \frac{M}{T}$$, onde $$M$$ representa o elemento com maior quantidade de pipocas. Esse valor $$x$$ representa o valor máximo da soma de uma subsequência. Note que $$x = 2^{a} | a \in \mathbb{N}$$, com isso denotaremos uma variável $$aux = 2^{a-1}$$
+
+Após obtermos $$x$$, encontraremos a quantidade de subsequências necessárias para obedecer ao valor $$x$$, que denotaremos $$contador$$. 
+
+Realizaremos agora uma implementação na forma de uma busca binária:
+* Caso $$contador \leq C$$, calcularemos $$x = \frac{x-a}{2}$$ e armazenamos $$x$$ como resposta temporaria $$res$$.
+* Caso contrário, utilizaremos duas abordagens diferentes:
+  * Caso ainda não tenha acontecido $$contador \leq C$$, $$aux = x$$ e $$x = x*2$$
+  * Caso contrario, denotaremos $$aux2 = \frac{x-a}{2}$$ e atribuiremos $$aux = x$$ e $$x = x+aux$$
+
+Quando encerrarmos a busca binária basta imprimir o valor de $$res$$
+
+### Solução em C++
+<details>
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char const *argv[]) {
+    int n,c,t,x,m=0,mi,aux=1,ret;
+    bool v = false;
+    cin >> n >> c >> t;
+    int s[n];
+    for (int i = 0; i < n; i++){
+        cin >> s[i];
+        m = max(m,s[i]);
+    }
+    x = pow(2,(int) ceil(log2(m/t)));
+    mi = x/2;
+    while (aux != 0){
+        int sa = 0;
+        int cont = 0;
+        for (int i = 0; i < n; i++){
+            if (ceil(s[i]*1.0/t) > x || cont == c){
+                cont = c+1;
+                break;
+            }
+            if (ceil((double)(sa + s[i])/(t*1.0)) <= x){
+                sa += s[i];
+            } else {
+                cont++;
+                sa = s[i];
+            }
+        }
+        cont++;
+        aux = (x-mi)/2;
+        if (cont <= c){
+            ret = x;
+            v = true;
+            x -= aux;
+        } else if (v){
+            mi = x;
+            x += aux;
+        } else {
+            aux = 1;
+            mi = x;
+            x = x*2;
+        }
+    }
+    cout << ret << endl;
+    return 0;
+}
+```
+</details>
