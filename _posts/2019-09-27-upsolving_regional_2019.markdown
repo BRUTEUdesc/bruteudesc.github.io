@@ -12,7 +12,7 @@ Hora de alguém movimentar esse site aqui pra fazer valer a pena (manter site é
 Me chamo João Vitor Fröhlich <a href="https://codeforces.com/profile/joaovitor01" style="color: green">(joaovitor01)</a> e estarei realizando aqui um upsolving das questões que caíram na maratona regional de 2019.  
 Vou estar disponibilizando também um código que solucione a questão, lembrando que o código não corresponde à melhor solução, além de que é no mínimo interessante a produção do próprio código, ou seja, olhe o código somente se você não foi capaz de
 programar a própria solução (ou pra comparar também).  
-Cada problema terá um link para o problema na plataforma Uri Online Judge
+Cada problema terá um link para o problema na plataforma Uri Online Judge  
 Dito isso, aproveite a leitura
 
 # Aquecimento
@@ -369,6 +369,119 @@ int main(){
 ```
 </details>
 
+
+## Problema J
+[Jogo do Baralho](https://www.urionlinejudge.com.br/judge/pt/problems/view/2971)
+
+O problema consiste basicamente em simular o jogo até chegar em uma condição de vitória,
+e como o problema possui constantes pequenas, somos capazes de executar a simulação
+em pouco tempo.
+
+Para facilitar o código transformamos as cartas em números de 0 a 12, inserindo a quantidade
+de cartas que aparecem para cada jogador em uma matriz de dimensões Nx13.
+
+Indiquei também a posição e o status do coringa em um vetor de N posições.
+
+Deve-se atentar ao fato de que pode-se ter um estado vencedor antes de começar a simulação.
+
+No final apenas imprimimos o valor correspondente ao jogador vencedor.
+
+### Solução em C++
+<details>
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+#define NT 0
+#define MANTER 1
+#define PASSAR 2
+
+int transformaChar(char c){
+    if (c == 'A') return 0;
+    else if (c == 'D') return 9;
+    else if (c == 'Q') return 10;
+    else if (c == 'J') return 11;
+    else if (c == 'K') return 12;
+    else return ((int)c)-49;
+}
+
+int main(int argc, char const *argv[]) {
+    int n,k, vencedor = 0;
+    char jogo[4];
+    cin >> n >> k;
+    int coringa[n];
+    int jogos[n][13];
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < 13; j++){
+            jogos[i][j] = 0;
+        }
+        cin >> jogo;
+        if (i == k-1) coringa[i] = MANTER;
+        else coringa[i] = NT;
+        for (int j = 0; j < 4; j++){
+            jogos[i][transformaChar(jogo[j])]++;
+        }
+        if (jogos[i][transformaChar(jogo[0])] == 4 && vencedor == 0 && coringa[i] == NT){
+            vencedor = i+1;
+        }
+    }
+    int jogador = k-1, proximoJogador;
+    bool passou;
+    while (vencedor == 0){
+        passou = false;
+        int cartasDuplas[2] = {-1,-1};
+        if (jogador != n-1){
+            proximoJogador = jogador+1;
+        } else {
+            proximoJogador = 0;
+        }
+        if (coringa[jogador] == PASSAR){
+            for (int i = 0; i < 13; i++){
+                if (jogos[jogador][i] == 4) vencedor = jogador+1;
+            }
+            coringa[proximoJogador] = MANTER;
+            coringa[jogador] = NT;
+            jogador = proximoJogador;
+            continue;
+        } else if (coringa[jogador] == MANTER){
+            coringa[jogador] = PASSAR;
+        }
+        for (int i = 0; i < 13; i++){
+            if (jogos[jogador][i] == 1){
+                if (passou) continue;
+                jogos[proximoJogador][i]++;
+                jogos[jogador][i]--;
+                passou = true;
+            } else if (jogos[jogador][i] == 2){
+                if (passou) continue;
+                if (cartasDuplas[0] == -1) cartasDuplas[0] = i;
+                else cartasDuplas[1] = i;
+            } else if (jogos[jogador][i] == 3) {
+                cartasDuplas[1] = i;
+            } else if (jogos[jogador][i] == 4){
+                if (coringa[jogador] == NT){
+                    vencedor = jogador+1;
+                } else {
+                    jogos[proximoJogador][i]++;
+                    jogos[jogador][i]--;
+                }
+                break;
+            }
+        }
+        if (cartasDuplas[0] != -1 && cartasDuplas[1] != -1 && !passou){
+            jogos[proximoJogador][cartasDuplas[0]]++;
+            jogos[jogador][cartasDuplas[0]]--;
+        }
+        jogador = proximoJogador;
+    }
+    cout << vencedor << endl;
+    return 0;
+}
+```
+</details>
+
+
 ## Problema M
 [Maratona Brasileira de Comedores de Pipoca](https://www.urionlinejudge.com.br/judge/pt/problems/view/2973)
 
@@ -384,7 +497,7 @@ Realizaremos agora uma implementação na forma de uma busca binária:
 * Caso $$contador \leq C$$, calcularemos $$x = \frac{x-a}{2}$$ e armazenamos $$x$$ como resposta temporaria $$R$$.
 * Caso contrário, utilizaremos duas abordagens diferentes:
   * Caso ainda não tenha acontecido $$contador \leq C$$, $$aux = x$$ e $$x = x*2$$
-  * Caso contrario, denotaremos $$aux2 = \frac{x-a}{2}$$ e atribuiremos $$aux = x$$ e $$x = x+aux$$
+  * Caso contrario, denotaremos $$aux_2 = \frac{x-a}{2}$$ e atribuiremos $$aux = x$$ e $$x = x+aux_2$$
 
 Quando encerrarmos a busca binária basta imprimir o valor de $$R$$
 
@@ -441,4 +554,3 @@ int main(int argc, char const *argv[]) {
 }
 ```
 </details>
-
