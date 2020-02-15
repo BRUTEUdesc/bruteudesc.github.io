@@ -111,7 +111,7 @@ E **hora do submit!**, teste seu código e pode mandar. Vá em submissões para 
 
 <font color=#0a0> **Acceped** </font>: Se você conseguiu essa resposta parabéns, você solucionou o problema - mas mesmo assim leia o que significam as outras respostas. Se não foi aceito faz parte, tanto que esse problema vale bastantes pontos, leia o significado das outras respostas para saber o que errou.
 
-<font color=#660> **Presentation error** </font>: Um dos erros mais comuns no problema 1001, é quando você acerta as entradas mas não do jeito que foi pedido no problema. Quando, em C por exemplo esquece de pular linha (`\n`), isso é sempre uma coisa pedida nos problemas.
+<font color=#660> **Presentation error** </font>: Um dos erros mais comuns no problema 1001, é quando você acerta as entradas mas não do jeito que foi pedido no problema. Quando em C, por exemplo, você esquece de pular linha (`\n`). Isso é sempre uma coisa pedida nos problemas.
 
 <font color=red> **Wrong anwser(%x)** </font>: Sim, resposta errada, você não fez o código esperado, tente consertar e achar testes que quebram sua solução. A porcentagem entre parenteses é quantas das resposta você errou.
 
