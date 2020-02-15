@@ -20,7 +20,7 @@ Se você já sabe os comandos básicos(input, operações matematicas e output) 
 
 Esta seção vai te mostrar os comandos básicos para você fazer o seu primeiro código. Sem dúvida o mais rápido e fácil nesse momento é aprender Python. Antes de mais nada [instale python3 no seu computador](https://www.google.com/search?q=instalar+python) é importante adicionar ele às suas variáveis de ambiente, <font size=1> ou use um [compilador online](https://www.onlinegdb.com/) por enquanto</font>. Mas também colocarei o código em C para efeitos de comparação.
 
-Hora de codar! Abra seu editor de texto, crie um arquivo `a.py`. Primeiro vamos aprender a dar um output, o famoso print. É complicado vá com calma:
+Hora de codar! Abra seu editor de texto, crie um arquivo `a.py`. Primeiro vamos aprender a dar um output, o famoso print. É complicado, vá com calma:
 
 Para printar palavras:<br>
 `print("Ola  Mundo")`
