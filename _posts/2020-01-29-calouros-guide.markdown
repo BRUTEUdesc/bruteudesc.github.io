@@ -16,7 +16,7 @@ Este guia tem o objetivo de te adiantar algumas coisas sobre programação compe
 
 (carinhosamente abreviado para 'codar')
 
-Se você já sabe os comandos básicos(input, operações matematicas e output) de alguma linguagem de programação (menos visualg) pode clicar [aqui](#competitive-programming) para pular esta parte. 
+Se você já sabe os comandos básicos(input, operações matemáticas e output) de alguma linguagem de programação (menos visualg) pode clicar [aqui](#competitive-programming) para pular esta parte. 
 
 Esta seção vai te mostrar os comandos básicos para você fazer o seu primeiro código. Sem dúvida o mais rápido e fácil nesse momento é aprender Python. Antes de mais nada [instale python3 no seu computador](https://www.google.com/search?q=instalar+python) é importante adicionar ele às suas variáveis de ambiente, <font size=1> ou use um [compilador online](https://www.onlinegdb.com/) por enquanto</font>. Mas também colocarei o código em C para efeitos de comparação.
 
@@ -32,18 +32,18 @@ Printar variáveis:<br>
 `a = 5`<br>
 `print(a)`
 
-Printar váriaveis formatando a saída(o mais importante até aqui):<br>
+Printar variáveis formatando a saída(o mais importante até aqui):<br>
 `a = 5`<br>
 `print('Ola mundo {}'.format(a))`
 
 <img src="https://pics.conservativememes.com/declares-variables-when-learning-python-we-dont-do-that-here-41880532.png" title="Meme" width=300 height=300>
 
-Para rodar seu código só ir até o terminal ou prompt de comando, ir até a [pasta](https://www.google.com/search?q=como+navegar+pelas+pastas+no+prompt+de+comando&oq) em que você criou o arquivo e dar o comando para executar `python3 a.py`.
+Para rodar seu código é só ir até o terminal ou prompt de comando (`ctrl + t` no Ubuntu), navegar até a [pasta](https://www.google.com/search?q=como+navegar+pelas+pastas+no+prompt+de+comando&oq) em que você criou o arquivo e dar o comando para executar `python3 a.py`.
 
 Agora os comandos de entrada:
 
 `a = input()`<br>
-`a` será do tipo string, para fazer a converção quando você quer um número inteiro:<br>
+`a` será do tipo string, para fazer a conversão quando você quer um número inteiro:<br>
 `a = int(a)`<br>
 ou diretamente na entrada:<br>
 `a = int(input())`<br>
@@ -51,7 +51,7 @@ ou diretamente na entrada:<br>
 Continhas matemáticas:<br>
 `a = 2`<br>
 `b = a+a`<br>
-Neste o `+` pode ser substituido por qualquer uma das outras operações(- , *, /)
+Neste caso, o `+` pode ser substituído por qualquer uma das outras operações (`-, *, /, %`)
 
 Juntando tudo:
 ```python
@@ -80,7 +80,7 @@ Para falar de programação competitiva, primeiramente:
 
 ### ***JA FEZ UMA CONTA NO URI????!11***
 
-URI é o online judge que a gente mais usa na UDESC, pelo menos no começo... E entrar na competição do ranking da udesc vai ser um bom insentivo.
+URI é o online judge que a gente mais usa na UDESC, pelo menos no começo... E entrar na competição do ranking da udesc vai ser um bom incentivo.
 
 
 ## - Mas o que são online judges?
@@ -96,8 +96,7 @@ Vocẽ ja sabe printar, e a correção será feita comparando o que você printo
 
 ## - Probleminhas:
 
-Os problemas sempre são compostos por um enunciado, uma explicação sobre a entrada que vai ser dada, sobre como a saida é esperada, e um input sample com a saida esperada para ela, ajudando nos testes antes de dar o 
-submit.
+Os problemas sempre são compostos por um enunciado, uma explicação sobre a entrada que vai ser dada, sobre como a saída é esperada, e um input sample com a saída esperada para ela, ajudando nos testes antes de dar o submit.
 
 ## - Hora do primeiro *submit*
 
@@ -109,13 +108,13 @@ E **hora do submit!**, teste seu código e pode mandar. Vá em submissões para 
 
 ## - As respostas do Judge:
 
-<font color=#0a0> **Acceped** </font>: Se você conseguiu essa resposta parabéns, você solucionou o problema - mas mesmo assim leia o que significam as outras respostas. Se não foi aceito faz parte, tanto que esse problema vale bastantes pontos, leia o significado das outras respostas para saber o que errou.
+<font color=#0a0> **Accepted** </font>: Se você conseguiu essa resposta parabéns, você solucionou o problema - mas mesmo assim leia o que significam as outras respostas. Se não foi aceito faz parte, tanto que esse problema vale bastante pontos, leia o significado das outras respostas para saber o que errou.
 
-<font color=#660> **Presentation error** </font>: Um dos erros mais comuns no problema 1001, é quando você acerta as entradas mas não do jeito que foi pedido no problema. Quando em C, por exemplo, você esquece de pular linha (`\n`). Isso é sempre uma coisa pedida nos problemas.
+<font color=#660> **Presentation error** </font>: Um dos erros mais comuns no problema 1001, é quando você acerta as entradas mas não do jeito que foi pedido no problema. Quando, por exemplo, esquecemos de quebrar linha (`\n`) no final de todos os prints.
 
-<font color=red> **Wrong anwser(%x)** </font>: Sim, resposta errada, você não fez o código esperado, tente consertar e achar testes que quebram sua solução. A porcentagem entre parenteses é quantas das resposta você errou.
+<font color=red> **Wrong anwser(%x)** </font>: Sim, resposta errada, você não fez o código esperado, tente consertar e aiar testes que quebram sua solução. A porcentagem entre parenteses é quantas das resposta você errou.
 
-<font color=#004fc5> **Time limit exceeded** </font>: É uma das coisas que torna os problemas mais difíceis mais difíceis. O seu código tem um tempo limite para executar e dar a resposta, geralmente 1s, e se passar disso terá o tempo limite excedido. É por causa desse erro que você vai ouvir muito falar em complexidade de código. 
+ <font color=#004fc5> **Time limit exceeded** </font>: É uma das coisas que torna os problemas difíceis mais difíceis, o seu código tem um tempo limite para executar e dar a resposta, geralmente 1s, e se passar disso terá o tempo limite excedido. É por causa desse erro que você vai ouvir muito falar em complexidade de algoritmo. 
 
 <font color=#0AA> **Runtime error** </font>: Alguma coisa quebrou seu código durante a execução, uma divisão por zero, alguma coisa assim.
 
