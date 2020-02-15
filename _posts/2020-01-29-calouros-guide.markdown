@@ -115,7 +115,7 @@ E **hora do submit!**, teste seu código e pode mandar. Vá em submissões para 
 
 <font color=red> **Wrong anwser(%x)** </font>: Sim, resposta errada, você não fez o código esperado, tente consertar e achar testes que quebram sua solução. A porcentagem entre parenteses é quantas das resposta você errou.
 
-<font color=#004fc5> **Time limit exeeded** </font>: É uma das coisas que torna os problemas mais dificeis mais dificeis, o seu código tem um tempo limite para executar e dar a resposta, geralmente 1s, e se passar disso terá o tempo limite exedido. É por causa desse erro que você vai ouvir muito falar em complexidade de código. 
+<font color=#004fc5> **Time limit exceeded** </font>: É uma das coisas que torna os problemas mais difíceis mais difíceis. O seu código tem um tempo limite para executar e dar a resposta, geralmente 1s, e se passar disso terá o tempo limite excedido. É por causa desse erro que você vai ouvir muito falar em complexidade de código. 
 
 <font color=#0AA> **Runtime error** </font>: Alguma coisa quebrou seu código durante a execução, uma divisão por zero, alguma coisa assim.
 
