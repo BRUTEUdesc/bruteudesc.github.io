@@ -86,7 +86,7 @@ URI é o online judge que a gente mais usa na UDESC, pelo menos no começo... E 
 ## - Mas o que são online judges?
 
 
-São corretores de código automáticos sem coração, olhos ou ouvidos. O que quero dizer é que eles não vão olhar seu código diretamente, não vão ver suas variáveis ou seus comentários chingando o judge.
+São corretores de código automáticos sem coração, olhos ou ouvidos. O que quero dizer é que eles não vão olhar seu código diretamente, não vão ver suas variáveis ou seus comentários xingando o judge.
 
     The only thing that matters is the output. (unknown,2020)
 
