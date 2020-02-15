@@ -96,7 +96,7 @@ Vocẽ ja sabe printar, e a correção será feita comparando o que você printo
 
 ## - Probleminhas:
 
-Os problemas sempre são compostos por um enunsiado, uma explicação sobre a entrada que vai ser dada, sobre como a saida é esperada, e um input sample com a saida experada para ela, ajudando nos testes antes de dar o 
+Os problemas sempre são compostos por um enunciado, uma explicação sobre a entrada que vai ser dada, sobre como a saida é esperada, e um input sample com a saida esperada para ela, ajudando nos testes antes de dar o 
 submit.
 
 ## - Hora do primeiro *submit*
