@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Competitive Programmer Calouro's Guide - First Accepted - BRUTE - Competitive Programming</title>
+    <meta name="description" content="Guia para o calouros sair com seu primeiro accepted.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:image" content="">
+    <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="/assets/img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="/assets/img/favicon/apple-touch-icon-114x114.png">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#2d2a2a">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#2d2a2a">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d2a2a">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-container">
+        <div class="sidebar-logo">
+            <img class="logo" src=/assets/img/brute.png alt="BRUTE">
+        </div>
+
+        <menu class="sidebar-menu">
+            <li class="menu-items"><a class="menu-links" href="/">Home</a></li>
+            <li class="menu-items"><a class="menu-links" href="/about/">Sobre</a></li>
+            <li class="menu-items"><a class="menu-links" href="/contact/">Contato</a></li>
+        </menu>
+
+        <div class="sidebar-social">
+            <li class="social-items"><a href="https://www.facebook.com/MaratonaUdesc" class="social-links"><i
+                        class="social-icons fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="social-items"><a href="https://github.com/bruteudesc" class="social-links"><i
+                        class="social-icons fa fa-github" aria-hidden="true"></i></a></li>
+            <li class="social-items"><a href="https://www.instagram.com/bruteudesc" class="social-links"><i
+                        class="social-icons fa fa-instagram" aria-hidden="true"></i></a></li>
+        </div>
+
+    </div>
+</aside>
+
+  <main role="main">
+    <div class="content">
+      <article class="page-article">
+  <div class="wrap-content">
+    <header class="page-header">
+      <h1 class="page-title">Competitive Programmer Calouro's Guide - First Accepted</h1>
+      <div class="page-date"><span>29 January 2020&nbsp;&nbsp;&nbsp;</span></div>
+    </header>
+    <div class="page-content">
+      
+      <img class="page-img" src=/assets/img/calouros.jpg alt="Competitive Programmer Calouro's Guide - First Accepted ">
+      
+      <h1 id="competitive-programmer-calouros-guide"><strong>Competitive Programmer Calouro’s Guide</strong></h1>
+
+<p>Eai calouro.</p>
+
+<p>Este guia tem o objetivo de te adiantar algumas coisas sobre programação competitiva, e que, sabendo nada ou sabendo muito sobre programação, você saia daqui com seu primeiro <strong>accepted</strong>.</p>
+
+<h1 id="programming">Programming:</h1>
+
+<p>(carinhosamente abreviado para ‘codar’)</p>
+
+<p>Se você já sabe os comandos básicos(input, operações matemáticas e output) de alguma linguagem de programação (menos visualg) pode clicar <a href="#competitive-programming">aqui</a> para pular esta parte.</p>
+
+<p>Esta seção vai te mostrar os comandos básicos para você fazer o seu primeiro código. Sem dúvida o mais rápido e fácil nesse momento é aprender Python. Antes de mais nada <a href="https://www.google.com/search?q=instalar+python">instale python3 no seu computador</a> é importante adicionar ele às suas variáveis de ambiente, &lt;font size=1&gt; ou use um <a href="https://www.onlinegdb.com/">compilador online</a> por enquanto&lt;/font&gt;. Mas também colocarei o código em C para efeitos de comparação.</p>
+
+<p>Hora de codar! Abra seu editor de texto, crie um arquivo <code class="highlighter-rouge">a.py</code>. Primeiro vamos aprender a dar um output, o famoso print. É complicado, vá com calma:</p>
+
+<p>Para printar palavras:<br />
+<code class="highlighter-rouge">print("Ola  Mundo")</code></p>
+
+<p>Printar números:<br />
+<code class="highlighter-rouge">print(10)</code></p>
+
+<p>Printar variáveis:<br />
+<code class="highlighter-rouge">a = 5</code><br />
+<code class="highlighter-rouge">print(a)</code></p>
+
+<p>Printar variáveis formatando a saída(o mais importante até aqui):<br />
+<code class="highlighter-rouge">a = 5</code><br />
+<code class="highlighter-rouge">print('Ola mundo {}'.format(a))</code></p>
+
+<p>&lt;img src=”https://pics.conservativememes.com/declares-variables-when-learning-python-we-dont-do-that-here-41880532.png” title=”Meme” width=300 height=300&gt;</p>
+
+<p>Para rodar seu código é só ir até o terminal ou prompt de comando (<code class="highlighter-rouge">ctrl + t</code> no Ubuntu), navegar até a <a href="https://www.google.com/search?q=como+navegar+pelas+pastas+no+prompt+de+comando&amp;oq">pasta</a> em que você criou o arquivo e dar o comando para executar <code class="highlighter-rouge">python3 a.py</code>.</p>
+
+<p>Agora os comandos de entrada:</p>
+
+<p><code class="highlighter-rouge">a = input()</code><br />
+<code class="highlighter-rouge">a</code> será do tipo string, para fazer a conversão quando você quer um número inteiro:<br />
+<code class="highlighter-rouge">a = int(a)</code><br />
+ou diretamente na entrada:<br />
+<code class="highlighter-rouge">a = int(input())</code><br /></p>
+
+<p>Continhas matemáticas:<br />
+<code class="highlighter-rouge">a = 2</code><br />
+<code class="highlighter-rouge">b = a+a</code><br />
+Neste caso, o <code class="highlighter-rouge">+</code> pode ser substituído por qualquer uma das outras operações (<code class="highlighter-rouge">-, *, /, %</code>)</p>
+
+<p>Juntando tudo:</p>
+<div class="language-python highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">a</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"a = {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> 
+</code></pre>
+  </div>
+</div>
+<p>em C:</p>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+int main(){
+    int a; scanf("%i", &amp;a);
+    int b = a+a;
+    printf("a = %i\n", b);
+}
+</code></pre>
+<p>Esse é o básico que eu queria que você soubesse para passar para a próxima seção, e aplicar os conhecimentos de programação na programação competitiva.</p>
+
+<p>&lt;img src=”https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/41242i1D8397BD21B07DA8/image-size/large?v=1.0&amp;px=999” title=”Meme” width=300 height=300&gt;</p>
+
+<h1 id="competitive-programming">Competitive Programming:</h1>
+
+<p>Para falar de programação competitiva, primeiramente:</p>
+
+<h3 id="ja-fez-uma-conta-no-uri11"><strong><em>JA FEZ UMA CONTA NO URI????!11</em></strong></h3>
+
+<p>URI é o online judge que a gente mais usa na UDESC, pelo menos no começo… E entrar na competição do ranking da udesc vai ser um bom incentivo.</p>
+
+<h2 id="--mas-o-que-são-online-judges">- Mas o que são online judges?</h2>
+
+<p>São corretores de código automáticos sem coração, olhos ou ouvidos. O que quero dizer é que eles não vão olhar seu código diretamente, não vão ver suas variáveis ou seus comentários xingando o judge.</p>
+
+<div class="highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code>The only thing that matters is the output. (unknown,2020)
+</code></pre>
+  </div>
+</div>
+
+<p>Vocẽ ja sabe printar, e a correção será feita comparando o que você printou com a resposta esperada, por isso a resposta deve ser exatamente como é pedida nos probleminhas.</p>
+
+<p>&lt;img src=”https://pics.awwmemes.com/online-judge-when-i-submit-the-same-code-the-5th-60062139.png” title=”Weiss” width=250 height=250&gt;</p>
+
+<h2 id="--probleminhas">- Probleminhas:</h2>
+
+<p>Os problemas sempre são compostos por um enunciado, uma explicação sobre a entrada que vai ser dada, sobre como a saída é esperada, e um input sample com a saída esperada para ela, ajudando nos testes antes de dar o submit.</p>
+
+<h2 id="--hora-do-primeiro-submit">- Hora do primeiro <em>submit</em></h2>
+
+<p><em>Submit</em> do inglês submeter, mandar. É quando você, no caso do URI, cola seu texto, manda para a correção, e torce pelo tão esperado accepted. O URI tem o problema 1001 solucionado em várias linguagens no site, mas espero que você faça seu próprio código para entender melhor.</p>
+
+<p>Abra o problema <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1001">1001</a> veja o que é pedido e tente fazer seu código com o que você sabe.</p>
+
+<p>E <strong>hora do submit!</strong>, teste seu código e pode mandar. Vá em submissões para ver a resposta recebida.</p>
+
+<h2 id="--as-respostas-do-judge">- As respostas do Judge:</h2>
+
+<p>&lt;font color=#0a0&gt; <strong>Accepted</strong> &lt;/font&gt;: Se você conseguiu essa resposta parabéns, você solucionou o problema - mas mesmo assim leia o que significam as outras respostas. Se não foi aceito faz parte, tanto que esse problema vale bastante pontos, leia o significado das outras respostas para saber o que errou.</p>
+
+<p>&lt;font color=#660&gt; <strong>Presentation error</strong> &lt;/font&gt;: Um dos erros mais comuns no problema 1001, é quando você acerta as entradas mas não do jeito que foi pedido no problema. Quando, por exemplo, esquecemos de quebrar linha (<code class="highlighter-rouge">\n</code>) no final de todos os prints.</p>
+
+<p>&lt;font color=red&gt; <strong>Wrong anwser(%x)</strong> &lt;/font&gt;: Sim, resposta errada, você não fez o código esperado, tente consertar e aiar testes que quebram sua solução. A porcentagem entre parenteses é quantas das resposta você errou.</p>
+
+<p>&lt;font color=#004fc5&gt; <strong>Time limit exceeded</strong> &lt;/font&gt;: É uma das coisas que torna os problemas difíceis mais difíceis, o seu código tem um tempo limite para executar e dar a resposta, geralmente 1s, e se passar disso terá o tempo limite excedido. É por causa desse erro que você vai ouvir muito falar em complexidade de algoritmo.</p>
+
+<p>&lt;font color=#0AA&gt; <strong>Runtime error</strong> &lt;/font&gt;: Alguma coisa quebrou seu código durante a execução, uma divisão por zero, alguma coisa assim.</p>
+
+<p>&lt;font color=#e5af25&gt; <strong>Compilation error</strong> &lt;/font&gt;: Erro para compilar seu código (só acontece com linguagens que o código é compilado), provavelmente algo errado na sintaxe da linguagem. Se você fez um código em python e mandou em C é essa a resposta que vai ter.</p>
+
+<h1 id="pronto">Pronto.</h1>
+
+<p>Agora que você já sabe o básico é só ir em frente, vendo os próximos problemas, saber mais sobre a linguagem, pesquisar como fazer alguma coisa é o que mais ajuda a aprender coisas específicas. Nos próximos problemas algumas coisas com números reais como formatação do print para esses números vai ser necessário, pesquise, aprenda, e assim vai indo.</p>
+
+    </div>
+    
+
+  </div>
+</article>
+
+    </div>
+  </main>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    var TEX = MathJax.InputJax.TeX;
+    var COLS = function (W) {
+      var WW = [];
+      for (var i = 0, m = W.length; i < m; i++)
+        {WW[i] = TEX.Parse.prototype.Em(W[i])}
+      return WW.join(" ");
+    };
+    TEX.Definitions.Add({
+      environment: {
+        psmallmatrix: ['Array',null,'(',')','c',COLS([1/3]),".2em",'S',1],
+      }
+    });
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js">
+</script>
+</body>
+</html>
