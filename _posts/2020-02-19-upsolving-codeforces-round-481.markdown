@@ -20,6 +20,26 @@ Sem mais enrolação, bora pro upsolving.
 
 ## Problema A
 
+Nesse problema recebemos um vetor $$a$$ com $$n$$ elementos e nos é pedido para removermos os elementos duplicados, deixando apenas a ocorrência mais à direita do elemento.
+
+Limites do problema:
+* $$1 \leq$$ $$n$$ $$\leq 50$$
+* $$1 \leq$$ $$a_i$$ $$\leq 1000$$
+
+### Solução
+
+Perceba que os limites do problema são pequenos, logo existem muitas abordagens capazes de resolver o problema. Uma das possíveis abordagens é a seguinte.
+
+Como queremos o elemento mais a direita, percorremos o vetor $$a$$ da direita para a esquerda processando os elementos da seguinte forma:
+
+* Caso o elemento não esteja marcado:
+    * Inserimos o elemento em um outro vetor $$b$$;
+    * Marcamos o elemento.
+* Caso o elemento esteja marcado:
+    * Ignoramos o elemento.
+
+Após processar todos os elementos, teremos como resposta $$\mid b \mid$$ e o vetor $$b$$.
+
 ### Solução em C++
 
 <details>
@@ -55,6 +75,19 @@ int main(int argc, char const *argv[]) {
 
 ## Problema B
 
+O problema consiste em: dado uma string $$s$$ de tamanho $$n$$, verificar quantas letras devem ser removidas tal que não exista a substring "xxx" em $$s$$, tal que o número de remoções seja mínimo.
+
+Limites do problema:
+* $$1 \leq$$ $$n$$ $$\leq 100$$
+
+### Solução
+
+Nesse problema só nos interessam as substrings de $$s$$ que contenham apenas o caracter 'x'. Portanto, basta percorrer $$s$$ buscando as substrings interessantes.
+
+Perceba também que devemos remover caracters de substrings $$aux$$ tal que $$\mid aux$$$$\mid \geq 3$$, de tal forma que $$\mid aux$$$$\mid$$ passe a ser $$= 2$$.
+
+Assim, para cada substring $$aux$$, com $$\mid aux$$$$\mid \geq 3$$, o resultado deverá ser incrementado em $$\mid aux\mid - 2$$.
+
 ### Solução em C++
 
 <details>
@@ -85,6 +118,25 @@ int main(int argc, char const *argv[]) {
 
 ## Problema C
 
+Nesse problema, existem $$n$$ dormitórios, numerados de $$1$$ a $$n$$, tal que em cada dormitório $$i$$ existem $$a_i$$ quartos, numerados de $$1$$ a $$a_i$$. Um carteiro precisa entregar cartas a esses quartos, onde cada carta está numerada de $$1$$ a $$a_1 + a_2 + ... + a_n$$, onde os quartos do primeiro dormitório vêm primeiro, depois os quartos do segundo dormitório e assim por diante.
+
+O problema é: dado um conjunto de $$m$$ cartas, definir o dormitório e o quarto onde cada carta deve ser entregue.
+
+Limites do problema:
+* $$ 1 \leq n$$,$$m \leq 2 \cdot 10^5 $$
+* $$ 1 \leq$$ $$a_i$$ $$\leq 10^{10}$$
+* $$ 1 \leq b_j\leq$$ $$\sum_{i=1}^{n} a_i$$ $$\mid$$ $$b$$ é dado em ordem crescente
+
+### Solução
+
+A primeira coisa a se perceber aqui são os limites do problema. O número de dormitórios e carta é relativamente, logo uma solução linear para cada carta não solucionará o problema no tempo proposto, sendo necessário uma solução em $$\Theta(log$$ $$n)$$ ou $$\Theta(1)$$. Outro limite para ter atenção é o valor de $$b_i$$, que pode chegar a $$10^{11}$$, o suficiente para gerar overflow em alguns tipos de variáveis, como o $$int$$ em C.
+
+A solução que vou apresentar executa em $$\Theta(n+m)$$ e passa "tranquilamente" no tempo. Aproveitando o fato que as cartas já estão ordenadas, vamos processar cada uma da seguinte forma:
+
+Os dormitórios percorridos pela carta anterior não precisam ser percorridos de novo, assim, partindo do dormitório atual, basta encontrar o dormitório $$x$$ tal que $$(\sum_{i=1}^{x-1} a_i)+1$$ $$\leq$$ $$b_j \leq sum_{i=1}^{x} a_i$$, e o quarto $$y = (\sum_{i=1}^{x} a_i) - b_j$$.
+
+Como são muitas entradas e saídas, recomendo o uso de fast I/O.
+
 ### Solução em C++
 
 <details>
@@ -113,6 +165,19 @@ int main(int argc, char const *argv[]) {
 </details>
 
 ## Problema D
+
+Dada uma sequência $$b$$ de números inteiros, onde cada elemento $$b$$ pode:
+* Ser incrementado em 1;
+* Ter seu valor mantido;
+* Ser diminuido em 1.
+
+O problema consiste em encontrar uma sequência aritmética a partir da sequência $$b$$, podendo realizar aquela operação acima apenas uma vez por elemento.
+
+Obs.: uma sequência $$a[a_1,a_2,...,a_n]$$ é chamada aritmética se e somente se $$\forall i \mid 1\leq i\leq n, a_{i+1}-a_i = r$$.
+
+Limites do problema:
+* $$1 \leq$$ $$n$$ $$\leq 10^5$$
+* $$1 \leq$$ $$b_i$$ $$\leq 10^9$$
 
 ### Solução em C++
 
@@ -166,6 +231,17 @@ int main(int argc, char const *argv[]) {
 </details>
 
 ## Problema E
+
+Nesse problema nos são fornecidos dois inteiros $$n$$ e $$w$$, representando respectivamente o número de paradas de ônibus e a capacidade do ônibus. Em seguida, são fornecidos $$n$$ números, onde
+
+$$\forall a_i$$ $$\epsilon$$ $$a$$; $$a_i$$ corresponde à mudança registrada após a parada de ônibus
+
+Com esses dados, o problema nos pede para computarmos quantas capacidades diferentes o ônibus poderia ter no início da contagem.
+
+Limites do problema:
+* $$1 \leq$$ $$n$$ $$\leq 1000$$
+* $$1 \leq$$ $$w$$ $$\leq 10^9$$
+* $$-10^6 \leq$$ $$a_i$$ $$\leq 10^6$$
 
 ### Solução em C++
 
