@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Upsolving Codeforces Round 481"
-date:   2020-02-19 15:45:00
+date:   2020-02-21 10:30:00
 img: cf.png
 description: Resolvendo probleminhas
 ---
@@ -171,13 +171,23 @@ Dada uma sequência $$b$$ de números inteiros, onde cada elemento $$b$$ pode:
 * Ter seu valor mantido;
 * Ser diminuido em 1.
 
-O problema consiste em encontrar uma sequência aritmética a partir da sequência $$b$$, podendo realizar aquela operação acima apenas uma vez por elemento.
+O problema consiste em encontrar o menor número de modificações na sequência $$b$$ para que essa seja uma progressão aritmética, sendo que podemos realizar aquela operação acima apenas uma vez por elemento.
 
 Obs.: uma sequência $$a[a_1,a_2,...,a_n]$$ é chamada aritmética se e somente se $$\forall i \mid 1\leq i\leq n, a_{i+1}-a_i = r$$.
 
 Limites do problema:
 * $$1 \leq$$ $$n$$ $$\leq 10^5$$
 * $$1 \leq$$ $$b_i$$ $$\leq 10^9$$
+
+### Solução
+
+O problema parece ser difícil de ser resolvido em um tempo aceitável, porém é preciso destacar uma característica desse problema: o fato de estarmos lidando com uma sequência aritmética.
+
+Perceba que não será necessário testar todas as possíveis combinações da sequência $$b$$, já que o valor $$r$$ será definido assim que processarmos os dois primeiros números da sequência. Todos os outros valores de $$b$$ devem respeitar o valor $$r$$ que está sendo testado.
+
+Assim, podemos fazer uma combinação simples entre os dois primeiros números, testando todas as modificações possíveis nesses números, resultando em 9 sequências para testarmos se essas sequências podem ser aritméticas realizando, caso necessário, as modificações nos elementos.
+
+Supondo então um valor $$r = b_1 - b_0$$, devemos testar $$\forall a_i \mid 2 \leq i \leq  n-1$$ se, aplicando as modificações, podemos ter $$b_i - b_{i-1} = r$$. Caso positivo, testamos o número seguinte, caso contrário, essa sequência é inválida.
 
 ### Solução em C++
 
@@ -243,6 +253,13 @@ Limites do problema:
 * $$1 \leq$$ $$w$$ $$\leq 10^9$$
 * $$-10^6 \leq$$ $$a_i$$ $$\leq 10^6$$
 
+### Solução
+
+Para esse problema, podemos encontrar uma solução relativamente simples, processando o vetor $$a$$ da seguinte forma:
+* A cada parada de ônibus, verificamos se a soma de todas as paradas até agora é um máximo ou mínimo global de pessoas necessários para que os dados informados sejam válidos;
+* Caso o mínimo global seja menor que $$-w$$ ou o máximo global seja maior que $$w$$, então a resposta será 0, pois é impossível alocar uma quantidade de pessoas no início da viagem que possa satisfazer as paradas registradas;
+* Caso seja possível encontrar uma resposta, o resultado será a capacidade total do ônibus $$+ 1$$ (devemos considerar que pode ter ninguém no início da viagem), descontando a quantidade mínima e a quantidade máxima de pessoas que podem ter no início da viagem.
+
 ### Solução em C++
 
 <details>
@@ -282,6 +299,26 @@ int main(int argc, char const *argv[]) {
 </details>
 
 ## Problema F
+
+Nesse problema temos $$n$$ programadores, onde cada programador $$i$$ possui um nível de habilidade $$r_i$$. Um programador $$a$$ pode ser mentor de um programador $$b$$ se e somente se o nível de habilidade do programador $$a$$ for estritamente maior que o nível de habilidade do programador $$b$$ e os programadores $$a$$ e $$b$$ não estiverem brigados.
+
+Mais especificamente, o problema pede que, para cada programador, seja informado de quantos outros programadores ele pode ser mentor.
+
+Limites do problema:
+* $$2 \leq$$ $$n$$ $$\leq 2\cdot 10^5$$
+* $$0 \leq$$ $$k$$ $$\leq min(2\cdot 10^5, \frac{n\cdot (n-1)}{2})$$
+* $$1 \leq$$ $$r_i$$ $$\leq 10^9$$
+* $$1 \leq$$ $$x,y$$ $$\leq n, x \ne y$$, onde é garantido que não existe dois pares $$(x,y)$$ ou $$(y,x)$$.
+
+### Solução
+
+Uma possível solução para esse problema é dividir o problema em duas partes.
+
+Primeiro processamos a quantidade total de programadores que um determinado programador pode ser mentor
+
+Após realizarmos esse processamento, devemos processar as brigas internas e diminuir a quantidade de programadores que o programador de maior habilidade poderia ser mentor em 1. Caso ambos possuissem habilidades iguais, nada aconteceria.
+
+Porém, nesse problema é importante se atentar ao tempo de execução, já que determinadas implementações dessa lógica podem ser muito lentas para executar o código.
 
 ### Solução em C++
 
@@ -327,6 +364,33 @@ int main(int argc, char const *argv[]) {
 </details>
 
 ## Problema G
+
+Esse problema nos pede para definir um cronograma que deverá ser seguido por uma estudante para que ela possa passar nos exames finais da faculdade. Existem $$n$$ dias e $$m$$ exames que precisam ser realizados, sendo os dias contados de $$1$$ a $$n$$.
+
+Para cada exame, são informados três valores:
+* $$s_i$$: o dia em que as questões do exame serão publicadas;
+* $$d_i$$: o dia do exame;
+* $$c_i$$: o número de dias que a estudante precisa para se preparar para o exame.
+
+Existem 3 atividades para a estudante realizar durante o dia:
+* Passar o dia fazendo nada ($$0$$)
+* Passar o dia estudando para um exame ($$i$$)
+* Passar o dia fazendo um exame ($$m+1$$)
+
+O problema consiste em encontrar um cronograma para a estudante passar em todos os exames ou reportar que é impossível passar em todos os exames.
+
+Limites do problema:
+* $$2 \leq$$ $$n$$ $$\leq 100$$
+* $$1 \leq$$ $$m$$ $$\leq n$$
+* $$1 \leq$$ $$s_i$$ $$\leq d_i+1 \leq n+1$$
+* $$1 \leq$$ $$c_i$$ $$\leq n$$
+
+### Solução
+
+Nesse problema podemos tratar os dados da seguinte forma:
+* Sempre vale a pena estudar pro exame que ocorrerá antes, independente da quantidade de dias necessários;
+* Caso seguindo essa estratégia, existir um exame que não pode ser estudado a tempo até o dia do exame, logo é impossível montar o cronograma;
+* Caso não exista exames para estudar, preenchemos o cronograma com dias livres.
 
 ### Solução em C++
 <details>
