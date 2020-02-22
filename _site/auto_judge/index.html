@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Desenvolvendo um protótipo de autojudge próprio para C/C++ - BRUTE - Competitive Programming</title>
+    <meta name="description" content="Criando um auto-judge próprio">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:image" content="">
+    <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="/assets/img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="/assets/img/favicon/apple-touch-icon-114x114.png">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#2d2a2a">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#2d2a2a">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d2a2a">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-container">
+        <div class="sidebar-logo">
+            <img class="logo" src=/assets/img/brute.png alt="BRUTE">
+        </div>
+
+        <menu class="sidebar-menu">
+            <li class="menu-items"><a class="menu-links" href="/">Home</a></li>
+            <li class="menu-items"><a class="menu-links" href="/about/">Sobre</a></li>
+            <li class="menu-items"><a class="menu-links" href="/contact/">Contato</a></li>
+        </menu>
+
+        <div class="sidebar-social">
+            <li class="social-items"><a href="https://www.facebook.com/MaratonaUdesc" class="social-links"><i
+                        class="social-icons fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li class="social-items"><a href="https://github.com/bruteudesc" class="social-links"><i
+                        class="social-icons fa fa-github" aria-hidden="true"></i></a></li>
+            <li class="social-items"><a href="https://www.instagram.com/bruteudesc" class="social-links"><i
+                        class="social-icons fa fa-instagram" aria-hidden="true"></i></a></li>
+        </div>
+
+    </div>
+</aside>
+
+  <main role="main">
+    <div class="content">
+      <article class="page-article">
+  <div class="wrap-content">
+    <header class="page-header">
+      <h1 class="page-title">Desenvolvendo um protótipo de autojudge próprio para C/C++</h1>
+      <div class="page-date"><span>10 October 2019&nbsp;&nbsp;&nbsp;</span></div>
+    </header>
+    <div class="page-content">
+      
+      <img class="page-img" src=/assets/img/post3.jpg alt="Desenvolvendo um protótipo de autojudge próprio para C/C++ ">
+      
+      <h1 id="desenvolvendo-um-autojudge-para-cc">Desenvolvendo um autojudge para C/C++</h1>
+
+<p>Enquanto esse upsolving da Sub-Regional 2019 ICPC vem sendo feito, vamos falar sobre outros assuntos.</p>
+
+<p>Vou mostrar aqui então uma ferramenta que eu estou usando para trabalhar no
+upsolving. Trata-se de um autojudge que eu criei para auxiliar em problemas
+que estavam dando resposta errada.</p>
+
+<p>Como a plataforma URI Online Judge não disponibiliza os casos de testes que
+são utilizados para testar o codigo, fui levado a procurar pelas entradas
+e saidas da prova, que foram encontradas <a href="http://maratona.ime.usp.br/primfase19/provas/competicao/competicao_tests.tar.bz2">aqui</a></p>
+
+<p>Baseado na forma como as entradas e saidas estão dispostas no arquivo comprimido,
+pensei em uma forma de testar meu código em todas as entradas, comparar com as
+saidas e mostrar o tempo de execução.</p>
+
+<p>A solução foi feita em shell script em um computador com Ubuntu 18.04.<br />
+A arquitetura da execução foi feita da seguinte forma:</p>
+
+<ul>
+  <li>Diretorio do problema/
+    <ul>
+      <li>script.sh</li>
+      <li>programa_compilado</li>
+      <li>input/</li>
+      <li>output/</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Note que as pastas input/ e output/ são as mesmas que foram extraidas<br />
+O programa_compilado é o executavel do codigo em C/C++<br />
+O arquivo script.sh será um shell script com um código semelhante ao código abaixo,
+que retorna caso de teste, tempo de execução, avaliação da resposta e mostra
+qual a resposta correta e qual foi a resposta retornada pelo código:</p>
+
+<div class="language-shell highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">PROBLEMA</span><span class="o">=(</span>letraProblema<span class="o">)</span>
+<span class="nv">LIMITE</span><span class="o">=(</span>qtdProblemas<span class="o">)</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span> i &lt;<span class="o">=</span> <span class="nv">$LIMITE</span><span class="p">;</span> i++<span class="o">))</span>
+<span class="k">do
+	</span><span class="nb">echo </span>Teste: <span class="nv">$i</span>
+	<span class="nb">echo
+	echo </span>Tempo de execucao:
+	<span class="nv">ANSWER</span><span class="o">=</span><span class="k">$(</span><span class="nb">time</span> ./main &lt; input/<span class="nv">$PROBLEMA_$i</span><span class="k">)</span>
+	<span class="nb">echo
+	</span><span class="nv">WAITED</span><span class="o">=</span><span class="k">$(</span><span class="nb">cat </span>output/<span class="nv">$PROBLEMA_$i</span><span class="k">)</span>
+	<span class="k">if</span> <span class="o">[</span> <span class="nv">$WAITED</span> <span class="nt">-eq</span> <span class="nv">$ANSWER</span> <span class="o">]</span>
+	<span class="k">then
+		</span><span class="nb">echo </span>Resposta Correta
+	<span class="k">else
+		</span><span class="nb">echo </span>Resposta Errada
+		<span class="nb">echo </span>Esperava <span class="nv">$WAITED</span>, encontrou <span class="nv">$ANSWER</span>
+	<span class="k">fi
+	</span><span class="nb">echo
+	echo
+</span><span class="k">done</span>
+</code></pre>
+  </div>
+</div>
+
+<p>Antes de executar o código, lembre-se de inserir valores para as variáveis
+PROBLEMA e LIMITE.</p>
+
+<p>É isso, com esse código se torna um pouco mais facil resolver problemas que
+estejam dando problemas, desde que exista as entradas e saidas dos problemas.</p>
+
+<p><strong>João Vitor Fröhlich</strong> (<a href="https://codeforces.com/profile/joaovitor01">codeforces</a>)</p>
+
+    </div>
+    
+
+  </div>
+</article>
+
+    </div>
+  </main>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: [
+      "MathMenu.js",
+      "MathZoom.js",
+      "AssistiveMML.js",
+      "a11y/accessibility-menu.js"
+    ],
+    jax: ["input/TeX", "output/CommonHTML"],
+    TeX: {
+      extensions: [
+        "AMSmath.js",
+        "AMSsymbols.js",
+        "noErrors.js",
+        "noUndefined.js",
+      ]
+    }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    var TEX = MathJax.InputJax.TeX;
+    var COLS = function (W) {
+      var WW = [];
+      for (var i = 0, m = W.length; i < m; i++)
+        {WW[i] = TEX.Parse.prototype.Em(W[i])}
+      return WW.join(" ");
+    };
+    TEX.Definitions.Add({
+      environment: {
+        psmallmatrix: ['Array',null,'(',')','c',COLS([1/3]),".2em",'S',1],
+      }
+    });
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js">
+</script>
+</body>
+</html>
