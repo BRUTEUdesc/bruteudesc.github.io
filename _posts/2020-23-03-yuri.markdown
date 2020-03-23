@@ -4,7 +4,6 @@ title:  "Introdução ao Yuri"
 date:   2019-23-03 17:00:00
 img: post2.jpeg
 description: Introdução ao bot do telegram Yuri.
-published: false
 ---
 
 # Introdução Yuri
