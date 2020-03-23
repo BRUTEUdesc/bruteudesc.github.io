@@ -3,7 +3,7 @@ published: true
 layout: post
 title:  "Introdução ao Yuri"
 date:   2020-03-23 17:00:00
-img: post2.jpeg
+img: yuri.jpg
 description: Introdução ao bot do telegram Yuri.
 ---
 
