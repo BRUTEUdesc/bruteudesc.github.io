@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Introdução ao Yuri"
+date:   2019-23-03 17:00:00
+img: post2.jpeg
+description: Introdução ao bot do telegram Yuri.
+published: false
+---
+
+# Introdução Yuri
+
+Para os desocupados e ociosos, porém empenhados, estudiosos e competitivos, o Yuri vem trazer desafios no [nosso grupo do telegram](t.me/BRUTEudesc).
+
+Você me pergunta: "Quem é Yuri?". Yuri é um bot do telegram criado pelo [weiss](http://codeforces.com/profile/_Weiss) que dia sim dia não, as 8:00 da manhã manda 10 questões do codeforces para serem resolvidas até as 20:00 do mesmo dia. A medida que essas questões são resolvidas pelos competidores ele gera um ranking e aumenta a pontuação daquele competidor.
+
+## [Codeforces](http://codeforces.com)
+
+Se você ainda não tem uma conta no codeforces, chegou a hora de criar. Isso é com você...
+
+http://codeforces.com
+
+Depois disso bora registrar no Yuri.
+
+## Como registrar no Yuri
+
+Bots do telegram tem comandos que podem executados usando uma mensagem especial. O bigodeira por exemplo tem o /meme. No caso do Yuri o primeiro comando que você deve usar é o:
+
+    /register "seu nome no codeforces". 
+
+Se não colocar o seu nome ele vai reclamar... Feito isso é possível utilizar outros comandos como o:
+
+    /status 
+que mostra a sua pontuação, seu nível, etc. E o:
+
+    /ranking
+que mostra o ranking total dos contests do Yuri.
+
+É possível ver esses comandos digitando "/" no campo de mensagens.
+
+## Hora de resolver probleminhas
+
+Estando registrado, é só ir até a mensagem das questões que o Yuri mandou naquele dia(ele deixa fixado) e começar a resolver.
+
+Você pode acompanhar o daily ranking por esse [link](http://dontpad.com/brute-daily-contest/). Ele é atualizado de 2 em 2 min até as 18:00 hrs na qual ele entra em modo "blind", ou seja, para de atualizar para que a competição fique mais acirrada. E, as 20:00 hrs ele manda o ranking do dia, contabiliza a pontação de cada competidor e começa o *upsolve*, qualquer dúvida sobre uma questão é essa a hora de mandar no grupo.
